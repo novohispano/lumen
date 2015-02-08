@@ -7,16 +7,17 @@
         %span.icon-bar
         %span.icon-bar
         %span.icon-bar
-      %a.navbar-brand{href: root_path}
-        %img.navbar-brand{alt: "Proyecto Lumen", src: image_url("logo.jpg")}
+      %a.navbar-brand{href: admin_path} ADMIN PROYECTO LUMEN
     / Collect the nav links, forms, and other content for toggling
     #bs-example-navbar-collapse-1.collapse.navbar-collapse
       %ul.nav.navbar-nav.navbar-right
         %li
-          %a{href: "#"} HISTORIA
-        %li
           %a{href: "#"} PROYECTOS
         %li
-          %a{href: "#"} BLOG
+          %a{href: "#"} NOTICIAS
         %li
-          %a{href: "#"} CONTACTO
+          %a{href: "#"} FOTOS
+        %li
+          %a{href: "#"} USUARIOS
+        %li
+          = link_to 'SALIR', admin_logout_path, method: :delete

@@ -1,0 +1,15 @@
+.container-fluid.admin-login
+  .col-sm-3
+  .col-sm-6
+    %h2 ADMINISTRADOR DEL PROYECTO LUMEN
+    %hr
+    %p Por favor introduce el email y password de tu cuenta para poder administrar el sitio.
+    = form_for @user, url: admin_sessions_path do |f|
+      .form-group
+        = f.label :email
+        = f.text_field     :email,    class: 'form-control'
+      .form-group
+        = f.label :password
+        = f.password_field :password, class: 'form-control'
+      .btn-contacto= f.submit 'ENTRAR AL SITIO', class: 'btn btn-default btn-lg'
+  .col-sm-3
