@@ -1,0 +1,9 @@
+.container-fluid
+  .col-md-2
+  .col-md-8
+    %h2 Fotos
+    = link_to 'SUBIR FOTO', new_admin_photo_path, class: 'btn btn-sm btn-default'
+    %hr
+    - @photos.each do |photo|
+      = photo.file.url(:medium)
+  .col-md-8

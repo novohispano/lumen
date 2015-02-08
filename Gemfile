@@ -14,10 +14,12 @@ gem 'puma'
 gem 'haml-rails'
 gem 'bootstrap-sass'
 gem 'autoprefixer-rails'
+gem 'paperclip', '~> 4.2'
+gem 'fog'
+gem 'figaro'
 
 group :development, :test do
   gem 'pry'
-
   gem 'web-console', '~> 2.0'
   gem 'spring'
   gem 'rspec-rails'

@@ -9,6 +9,19 @@ Bundler.require(*Rails.groups)
 module Lumen
   class Application < Rails::Application
     config.sass.preferred_syntax = :sass
+
+    config.paperclip_defaults = {
+      storage:         :fog,
+      fog_credentials: {
+        aws_access_key_id:     ENV['aws_access_key_id']
+        aws_secret_access_key: ENV['aws_secret_access_key']
+        provider: 'AWS'
+        region:   'us-east-1'
+        scheme:   'https'
+        },
+      fog_directory: ENV['aws_bucket']
+      }
+
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
