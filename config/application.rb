@@ -11,15 +11,12 @@ module Lumen
     config.sass.preferred_syntax = :sass
 
     config.paperclip_defaults = {
-      storage:         :fog,
-      fog_credentials: {
-        aws_access_key_id:     ENV['aws_access_key_id']
-        aws_secret_access_key: ENV['aws_secret_access_key']
-        provider: 'AWS'
-        region:   'us-east-1'
-        scheme:   'https'
-        },
-      fog_directory: ENV['aws_bucket']
+      storage:         :s3,
+      s3_credentials: {
+        bucket:            ENV['aws_bucket'],
+        access_key_id:     ENV['aws_access_key_id'],
+        secret_access_key: ENV['aws_secret_access_key']
+        }
       }
 
     # Settings in config/environments/* take precedence over those specified here.

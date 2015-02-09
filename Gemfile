@@ -14,8 +14,8 @@ gem 'puma'
 gem 'haml-rails'
 gem 'bootstrap-sass'
 gem 'autoprefixer-rails'
-gem 'paperclip', '~> 4.2'
-gem 'fog'
+gem 'paperclip'
+gem 'aws-sdk', '< 2.0'
 gem 'figaro'
 
 group :development, :test do
