@@ -1,7 +1,21 @@
 .container-fluid
   .col-md-2
   .col-md-8
+    %h2 Subir Foto
+    %hr
     = form_for @photo, url: admin_photos_path, html: { multipart: true } do |f|
-      = f.file_field :file
-      = f.submit 'SUBIR'
+      .form-group
+        = f.label 'Archivo'
+        = f.file_field :file
+        %p.help-block Selecciona una foto en formato PNG, JPG o GIF.
+      .form-group
+        = f.label 'Proyecto'
+        = f.collection_select :project_id, Project.all, :id, :name, {}, class: 'form-control'
+      .form-group
+        = f.label :slider do
+          %p
+            = f.check_box :slider
+            Mostrar en Página de Inicio
+      .form-group
+      = f.submit 'SUBIR FOTO', class: 'btn btn-default'
   .col-md-8

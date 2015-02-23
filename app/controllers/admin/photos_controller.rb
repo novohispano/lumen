@@ -21,6 +21,6 @@ class Admin::PhotosController < ApplicationController
   private
 
   def photo_params
-    params.require(:photo).permit(:file)
+    params.require(:photo).permit(:file, :project_id, :slider)
   end
 end
