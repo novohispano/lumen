@@ -2,28 +2,28 @@
   .col-md-12
     %h2 Administrador de Lumen
     %hr
-    .col-md-3.dashboard-box
+    .col-md-5.dashboard-box
       %span.glyphicon.glyphicon-globe{"aria-hidden" => "true"}
       %h4
         = link_to 'Proyectos', ''
       %hr
       %p #{@projects.count} Proyectos
       = link_to 'Crear Projecto', "", class: 'btn btn-default'
-    .col-md-3.dashboard-box
+    .col-md-5.dashboard-box
       %span.glyphicon.glyphicon-file{"aria-hidden" => "true"}
       %h4
         = link_to 'Noticias', ''
       %hr
       %p #{@news.count} Noticias
       = link_to 'Crear Noticia', "", class: 'btn btn-default'
-    .col-md-3.dashboard-box
+    .col-md-5.dashboard-box
       %span.glyphicon.glyphicon-picture{"aria-hidden" => "true"}
       %h4
         = link_to 'Fotos', admin_photos_path
       %hr
       %p #{@photos.count} Fotos
       = link_to 'Crear Foto', new_admin_photo_path, class: 'btn btn-default'
-    .col-md-3.dashboard-box
+    .col-md-5.dashboard-box
       %span.glyphicon.glyphicon-user{"aria-hidden" => "true"}
       %h4
         = link_to 'Usuarios', admin_users_path
