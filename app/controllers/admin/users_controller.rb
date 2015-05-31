@@ -1,6 +1,4 @@
 class Admin::UsersController < Admin::AdminController
-  before_action :require_user!
-
   def index
     @users = User.all
   end
@@ -39,7 +37,7 @@ class Admin::UsersController < Admin::AdminController
     user = User.find(params[:id])
     user.destroy
 
-    redirect_to admin_users_path, success: "El usuario #{user.email} se eliminó del sistema"
+    redirect_to admin_users_path, success: "El usuario #{user.email} se eliminó del sistema."
   end
 
   private

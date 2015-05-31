@@ -1,0 +1,18 @@
+.container-fluid
+  .col-md-2
+  .col-md-8
+    %h2 Editar Proyecto
+    %hr
+    = form_for @project, url: admin_project_path(@project) do |f|
+      .form-group
+        = f.label 'Nombre'
+        = f.text_field :name, class: 'form-control'
+      .form-group
+        = f.label 'Descripción'
+        = f.text_area :description, class: 'form-control'
+      .form-group
+        = f.label 'Número de Beneficiarios'
+        = f.number_field :beneficiaries, class: 'form-control'
+      .form-group
+      = f.submit 'GUARDAR PROYECTO', class: 'btn btn-default'
+  .col-md-8

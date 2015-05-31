@@ -5,10 +5,10 @@
     .col-md-5.dashboard-box
       %span.glyphicon.glyphicon-globe{"aria-hidden" => "true"}
       %h4
-        = link_to 'Proyectos', ''
+        = link_to 'Proyectos', admin_projects_path
       %hr
       %p #{@projects.count} Proyectos
-      = link_to 'Crear Projecto', "", class: 'btn btn-default'
+      = link_to 'Crear Projecto', new_admin_project_path, class: 'btn btn-default'
     .col-md-5.dashboard-box
       %span.glyphicon.glyphicon-file{"aria-hidden" => "true"}
       %h4

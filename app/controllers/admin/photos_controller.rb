@@ -1,4 +1,4 @@
-class Admin::PhotosController < ApplicationController
+class Admin::PhotosController < Admin::AdminController
   def index
     @photos = Photo.all
   end

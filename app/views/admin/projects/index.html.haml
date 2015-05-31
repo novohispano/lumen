@@ -1,0 +1,14 @@
+.container-fluid.admin-projects
+  .col-md-2
+  .col-md-8
+    %h2 Proyectos
+    = link_to 'CREAR PROYECTO', new_admin_project_path, class: 'btn btn-sm btn-default'
+    %hr
+    - @projects.each do |project|
+      %h4= project.name
+      - if project.photos.first
+        .project-image= image_tag(project.photos.first.file.url(:medium))
+      - else
+        .project-image= image_tag('photo_placeholder.png')
+      %p= project.description
+  .col-md-8

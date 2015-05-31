@@ -1,4 +1,6 @@
 class Admin::SessionsController < Admin::AdminController
+  before_action :require_user!, except: [:new, :create]
+
   def new
     @user = User.new
   end
