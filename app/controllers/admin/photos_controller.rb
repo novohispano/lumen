@@ -7,6 +7,10 @@ class Admin::PhotosController < Admin::AdminController
     @photo = Photo.new
   end
 
+  def edit
+    @photo = Photo.find_by(id: params[:id])
+  end
+
   def create
     @photo = Photo.new(photo_params)
 
@@ -18,9 +22,28 @@ class Admin::PhotosController < Admin::AdminController
     end
   end
 
+  def update
+    @photo = Photo.find_by(id: params[:id])
+
+    if @photo.update_attributes(photo_params)
+      redirect_to admin_photos_path, success: 'La foto se ha actualizado exitosamente.'
+    else
+      flash.now[:danger] = 'La foto no pudo ser actualizada. Por favor, intenta de nuevo.'
+      render :edit
+    end
+  end
+
+  def destroy
+    if Photo.destroy(params[:id])
+      redirect_to admin_photos_path, success: 'La foto se ha eliminado del sitio.'
+    else
+      redirect_to admin_photos_path, danger: 'La foto no se pudo eliminar del sitio. Por favor, intenta de nuevo.'
+    end
+  end
+
   private
 
   def photo_params
-    params.require(:photo).permit(:file, :project_id, :slider)
+    params.require(:photo).permit(:description, :file, :project_id, :slider)
   end
 end

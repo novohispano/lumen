@@ -1,9 +1,9 @@
 .container-fluid
   .col-md-2
   .col-md-8
-    %h2 Subir Foto
+    %h2 Actualizar Foto
     %hr
-    = form_for @photo, url: admin_photos_path, html: { multipart: true } do |f|
+    = form_for @photo, url: admin_photo_path(@photo), html: { multipart: true } do |f|
       .form-group
         = f.label 'Descripción (200 caracteres máximo)'
         = f.text_area :description, class: 'form-control'
@@ -20,5 +20,5 @@
             = f.check_box :slider
             Mostrar en Página de Inicio
       .form-group
-      = f.submit 'SUBIR FOTO', class: 'btn btn-default'
+      = f.submit 'ACTUALIZAR FOTO', class: 'btn btn-default'
   .col-md-8

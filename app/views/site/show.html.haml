@@ -1,13 +1,26 @@
 #carousel-lumen.carousel.slide{"data-ride" => "carousel"}
   / Indicators
   %ol.carousel-indicators
-    %li.active{"data-slide-to" => "0", "data-target" => "#carousel-lumen"}
+    - @photos.count.times do |i|
+      - if i == 0
+        %li.active{"data-slide-to" => "#{i}", "data-target" => "#carousel-lumen"}
+      - else
+        %li{"data-slide-to" => "#{i}", "data-target" => "#carousel-lumen"}
+
   / Wrapper for slides
   .carousel-inner{role: "listbox"}
-    .item.active
-      %img{alt: "Proyecto Lumen", src: image_url("img_3754.jpg")}
-        .carousel-caption.lumen
-          %h1 Para Lumen, la salud visual es un derecho humano.
+    - @photos.each_with_index do |photo, index|
+      - if index == 0
+        .item.active
+          %img{alt: "Proyecto Lumen", src: image_url("#{photo.file.url(:large)}")}
+            .carousel-caption.lumen
+              %h1= photo.description
+      - else
+        .item
+          %img{alt: "Proyecto Lumen", src: image_url("#{photo.file.url(:large)}")}
+            .carousel-caption.lumen
+              %h1= photo.description
+
   / Controls
   %a.left.carousel-control{"data-slide" => "prev", href: "#carousel-lumen", role: "button"}
     %span.glyphicon.glyphicon-chevron-left{"aria-hidden" => "true"}
