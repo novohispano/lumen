@@ -2,7 +2,8 @@ class SiteController < ApplicationController
   before_action :redirect_to_admin!
 
   def show
-    @photos = Photo.slider
+    @photos   = Photo.slider
+    @projects = Project.home
   end
 
   private

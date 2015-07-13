@@ -5,10 +5,16 @@
     = link_to 'CREAR PROYECTO', new_admin_project_path, class: 'btn btn-sm btn-default'
     %hr
     - @projects.each do |project|
-      %h4= project.name
-      - if project.photos.first
-        .project-image= image_tag(project.photos.first.file.url(:medium))
-      - else
-        .project-image= image_tag('photo_placeholder.png')
-      %p= project.description
-  .col-md-8
+      .col-md-4
+        - if project.photos.first
+          .project-image= image_tag(project.photos.first.file.url(:medium))
+        - else
+          .project-image= image_tag('photo_placeholder.png')
+        %h4
+          = project.name
+        %p
+          = project.description
+        %p
+          = link_to 'EDITAR', edit_admin_project_path(project), class: 'btn btn-xs btn-default'
+          = link_to 'ELIMINAR', admin_project_path(project), method: :delete, class: 'btn btn-xs btn-default'
+  .col-md-2

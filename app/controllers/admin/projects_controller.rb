@@ -26,9 +26,9 @@ class Admin::ProjectsController < Admin::AdminController
     @project = Project.find(params[:id])
 
     if @project.update_attributes(project_params)
-      redirect_to admin_projects_path, success: "El proyecto #{@project.email} se actualizó exitosamente."
+      redirect_to admin_projects_path, success: "El proyecto #{@project.name} se actualizó exitosamente."
     else
-      flash.now[:warning] = "El proyecto #{@project.email} no pudo actualizarse. Intenta de nuevo."
+      flash.now[:warning] = "El proyecto #{@project.name} no pudo actualizarse. Intenta de nuevo."
       render :edit
     end
   end
@@ -43,6 +43,6 @@ class Admin::ProjectsController < Admin::AdminController
   private
 
   def project_params
-    params.require(:project).permit(:name, :description, :beneficiaries)
+    params.require(:project).permit(:name, :description, :address, :beneficiaries, :home)
   end
 end

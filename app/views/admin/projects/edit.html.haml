@@ -17,5 +17,10 @@
         = f.label 'Número de Beneficiarios'
         = f.number_field :beneficiaries, class: 'form-control'
       .form-group
+        = f.label :home do
+          %p
+            = f.check_box :home
+            Mostrar en Página de Inicio (3 Proyectos Máximo)
+      .form-group
       = f.submit 'GUARDAR PROYECTO', class: 'btn btn-default'
   .col-md-8
