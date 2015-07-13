@@ -16,12 +16,14 @@ gem 'bootstrap-sass'
 gem 'autoprefixer-rails'
 gem 'paperclip'
 gem 'aws-sdk', '< 2.0'
+gem 'geocoder'
 gem 'figaro'
 
 group :development, :test do
   gem 'pry'
-  gem 'web-console', '~> 2.0'
-  gem 'spring'
+  gem 'better_errors'
+  gem 'binding_of_caller'
+  # gem 'spring'
   gem 'rspec-rails'
 end
 
