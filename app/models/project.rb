@@ -17,8 +17,8 @@ class Project < ActiveRecord::Base
   def get_coordinates
     coordinates = GeocoderService.new.coordinates(address)
 
-    self.longitude = coordinates[:latitude]
-    self.latitude  = coordinates[:longitude]
+    self.longitude = coordinates[:longitude]
+    self.latitude  = coordinates[:latitude]
   end
 
   def projects_in_home

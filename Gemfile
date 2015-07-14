@@ -18,12 +18,12 @@ gem 'paperclip'
 gem 'aws-sdk', '< 2.0'
 gem 'geocoder'
 gem 'figaro'
+gem 'responders', '~> 2.0'
 
 group :development, :test do
   gem 'pry'
   gem 'better_errors'
   gem 'binding_of_caller'
-  # gem 'spring'
   gem 'rspec-rails'
 end
 
