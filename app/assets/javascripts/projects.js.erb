@@ -16,7 +16,7 @@ function renderMap() {
 
 function fetchProjects(map) {
   $.ajax({
-    url: 'http://localhost:3000/api/v1/projects.json',
+    url: <%= ENV['projects_url'] %>,
     success: function(projects) {
       $.each(projects, function(index, project) {
         var latLng = new google.maps.LatLng(project.latitude, project.longitude);
