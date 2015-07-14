@@ -8,7 +8,7 @@ class Project < ActiveRecord::Base
 
   validate :projects_in_home
 
-  before_validation :get_coordinates
+  before_save :get_coordinates
 
   scope :home, -> { where(home: true) }
 
