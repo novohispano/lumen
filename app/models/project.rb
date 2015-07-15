@@ -2,7 +2,7 @@ class Project < ActiveRecord::Base
   has_many :photos
 
   validates :name,          presence: true, uniqueness: true
-  validates :description,   presence: true
+  validates :description,   presence: true, length: { maximum: 500 }
   validates :address,       presence: true
   validates :beneficiaries, numericality: { only_integer: true }
 
@@ -22,7 +22,7 @@ class Project < ActiveRecord::Base
   end
 
   def projects_in_home
-    if Project.count > 3
+    if Project.home.count > 3
       errors.add(:home, 'no se pueden mostrar más de tres proyectos en la página de inicio')
     end
   end

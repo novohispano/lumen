@@ -1,2 +1,21 @@
 .projects
   #map-canvas
+  .container-fluid
+    .col-sm-12
+    - @projects.each do |project|
+      .row.project
+        .col-sm-3
+          - if project.photos.first
+            .project-image= image_tag(project.photos.first.file.url(:medium))
+          - else
+            .project-image= image_tag('photo_placeholder.png')
+        .col-sm-9
+          %h6
+            = project.address
+          %h3
+            = project.name
+          %p
+            = project.description
+          %h5
+            = number_with_delimiter(project.beneficiaries)
+            beneficiarios

@@ -5,7 +5,7 @@
     %hr
     = form_for @photo, url: admin_photos_path, html: { multipart: true } do |f|
       .form-group
-        = f.label 'Descripción (200 caracteres máximo)'
+        = f.label 'Descripción (200 Caracteres Máximo)'
         = f.text_area :description, class: 'form-control'
       .form-group
         = f.label 'Archivo'

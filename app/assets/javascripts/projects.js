@@ -26,6 +26,14 @@ function fetchProjects(map) {
         });
 
         renderMarker(marker, map);
+
+        var infowindow = new google.maps.InfoWindow({
+          content: renderInfoWindowText(project)
+        });
+
+        google.maps.event.addListener(marker, 'click', function() {
+          infowindow.open(map, marker);
+        });
       })
     }
   })
@@ -33,4 +41,12 @@ function fetchProjects(map) {
 
 function renderMarker(marker, map) {
   marker.setMap(map);
+}
+
+function renderInfoWindowText(project) {
+  return '<div class=\'project-tooltip\'>'
+         + '<h3>' + project.name          + '</h3>'
+         + '<hr>'
+         + '<p>'  + project.description   + '</p>'
+         + '</div>'
 }
