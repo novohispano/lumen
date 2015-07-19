@@ -1,18 +1,5 @@
 .container-fluid.admin-news
   .col-md-2
   .col-md-8
-    %h2 Editar Noticia
-    %hr
-    = form_for @news, url: admin_news_index_path(@news) do |f|
-      .form-group
-        = f.label 'Título (200 Caracteres Máximo)'
-        = f.text_field :title, class: 'form-control'
-      .form-group
-        = f.label 'Contenido'
-        = f.text_area :body, class: 'form-control contenido'
-      .form-group
-        = f.label 'Author'
-        = f.text_field :author, class: 'form-control'
-      .form-group
-      = f.submit 'GUARDAR NOTICIA', class: 'btn btn-default'
+    = render partial: 'form', locals: { news: @news, url: admin_news_path(@news), form_text: 'Editar Noticia' }
   .col-md-8

@@ -4,6 +4,6 @@ module ApplicationHelper
   end
 
   def format_time(time)
-    time.localtime.strftime('%B %e, %Y - %l:%M %p')
+    l(time.localtime)
   end
 end

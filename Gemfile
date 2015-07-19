@@ -19,6 +19,7 @@ gem 'aws-sdk', '< 2.0'
 gem 'geocoder'
 gem 'figaro'
 gem 'responders', '~> 2.0'
+gem 'rails-i18n', github: 'svenfuchs/rails-i18n', branch: 'master'
 
 group :development, :test do
   gem 'pry'

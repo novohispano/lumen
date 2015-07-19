@@ -1,0 +1,22 @@
+.container-fluid.admin-news
+  .col-md-2
+  .col-md-8
+    .col-md-12.header
+      %h2
+        Noticias
+        = link_to 'REGRESAR', admin_news_index_path, class: 'btn btn-xs btn-default pull-right'
+    .col-md-12
+      %hr
+      %h6
+        = format_time(@news.created_at)
+      %h3.title
+        = link_to @news.title, admin_news_path(@news)
+      %h4
+        = @news.author
+      %p
+        = simple_format(@news.body)
+      %p
+        = link_to 'EDITAR',   edit_admin_news_path(@news), class: 'btn btn-xs btn-default'
+        = link_to 'ELIMINAR', admin_news_path(@news),      class: 'btn btn-xs btn-default', method: :delete, data: { confirm: '¿Estás seguro de eliminar esta noticia?' }
+      %hr
+  .col-md-2

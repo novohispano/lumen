@@ -27,7 +27,7 @@ class Admin::NewsController < Admin::AdminController
   end
 
   def update
-    @news.find(params[:id])
+    @news = News.find(params[:id])
 
     if @news.update_attributes(news_params)
       redirect_to admin_news_index_path, success: "La noticia #{@news.title} se actualizó exitosamente."
