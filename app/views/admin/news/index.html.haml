@@ -1,0 +1,21 @@
+.container-fluid.admin-news
+  .col-md-2
+  .col-md-8
+    %h2 NOTICIAS
+    = link_to 'CREAR NOTICIA', new_admin_news_path, class: 'btn btn-sm btn-default'
+    %hr
+    - @news.each do |news|
+      %h6
+        = format_time(news.created_at)
+      %h3.title
+        = link_to news.title, admin_news_path(news)
+      %h4
+        = news.author
+      %p
+        = simple_format(news.intro)
+      %p
+        = link_to 'VER',      admin_news_path(news), class: 'btn btn-xs btn-default'
+        = link_to 'EDITAR',   edit_admin_news_path(news), class: 'btn btn-xs btn-default'
+        = link_to 'ELIMINAR', admin_news_path(news), method: :delete, class: 'btn btn-xs btn-default'
+      %hr
+  .col-md-2

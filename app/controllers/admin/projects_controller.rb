@@ -28,7 +28,7 @@ class Admin::ProjectsController < Admin::AdminController
     if @project.update_attributes(project_params)
       redirect_to admin_projects_path, success: "El proyecto #{@project.name} se actualizó exitosamente."
     else
-      flash.now[:warning] = "El proyecto #{@project.name} no pudo actualizarse. Intenta de nuevo."
+      flash.now[:warning] = "El proyecto #{@project.name} no pudo actualizarse. Por favor, intenta de nuevo."
       render :edit
     end
   end

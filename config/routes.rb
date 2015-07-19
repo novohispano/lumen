@@ -3,6 +3,7 @@ Rails.application.routes.draw do
     resources :users
     resources :photos
     resources :projects
+    resources :news
     resources :sessions, only: [:create, :destroy]
 
     get    '/login',  to: 'sessions#new'

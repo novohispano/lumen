@@ -12,10 +12,10 @@
     .col-md-5.dashboard-box
       %span.glyphicon.glyphicon-file{"aria-hidden" => "true"}
       %h4
-        = link_to 'Noticias', ''
+        = link_to 'Noticias', admin_news_index_path
       %hr
       %p #{@news.count} Noticias
-      = link_to 'Crear Noticia', "", class: 'btn btn-default'
+      = link_to 'Crear Noticia', new_admin_news_path, class: 'btn btn-default'
     .col-md-5.dashboard-box
       %span.glyphicon.glyphicon-picture{"aria-hidden" => "true"}
       %h4

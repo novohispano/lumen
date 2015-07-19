@@ -20,13 +20,13 @@ RSpec.describe Project, type: :model do
       expect(result.description).to   eq('Descripción del proyecto')
       expect(result.beneficiaries).to eq(10)
       expect(result.address).to       eq('Caracas, Venezuela')
-      expect(result.longitude).to     eq(10.4696404)
-      expect(result.latitude).to      eq(-66.8037185)
+      expect(result.longitude).to     eq(-66.8037185)
+      expect(result.latitude).to      eq(10.4696404)
     end
   end
 
   context 'when it has invalid data' do
-    it 'doesn\'t allo more than three projects in home' do
+    it 'doesn\'t allow more than three projects in home' do
       %w(Caracas1 Caracas2 Caracas3).each do |title|
         project_data        = data.dup
         project_data[:name] = title

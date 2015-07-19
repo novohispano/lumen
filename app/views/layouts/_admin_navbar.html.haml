@@ -13,9 +13,11 @@
       #bs-example-navbar-collapse-1.collapse.navbar-collapse
         %ul.nav.navbar-nav.navbar-right
           %li
+            = link_to 'DASHBOARD', admin_path
+          %li
             = link_to 'PROYECTOS', admin_projects_path
           %li
-            %a{href: "#"} NOTICIAS
+            = link_to 'NOTICIAS', admin_news_index_path
           %li
             = link_to 'FOTOS', admin_photos_path
           %li
