@@ -1,20 +1,28 @@
 .container-fluid.admin-projects
   .col-md-2
   .col-md-8
-    %h2 Proyectos
-    = link_to 'CREAR PROYECTO', new_admin_project_path, class: 'btn btn-sm btn-default'
-    %hr
+    .row.header
+      %h2.pull-left Proyectos
+      = link_to 'CREAR PROYECTO', new_admin_project_path, class: 'btn btn-xs btn-default pull-right'
     - @projects.each do |project|
-      .col-md-4
-        - if project.photos.first
-          .project-image= image_tag(project.photos.first.file.url(:medium))
-        - else
-          .project-image= image_tag('photo_placeholder.png')
-        %h4
-          = project.name
-        %p
-          = project.description
-        %p
-          = link_to 'EDITAR', edit_admin_project_path(project), class: 'btn btn-xs btn-default'
-          = link_to 'ELIMINAR', admin_project_path(project), method: :delete, class: 'btn btn-xs btn-default'
+      .row
+        %hr
+        .col-md-3
+          - if project.photos.first
+            .project-image= image_tag(project.photos.first.file.url(:medium))
+          - else
+            .project-image= image_tag('photo_placeholder.png')
+        .col-md-9
+          %h6
+            = project.address
+          %h3
+            = project.name
+          %p
+            = project.description
+          %h5
+            = number_with_delimiter(project.beneficiaries)
+            beneficiarios
+          %p
+            = link_to 'EDITAR',   edit_admin_project_path(project), class: 'btn btn-xs btn-default'
+            = link_to 'ELIMINAR', admin_project_path(project),      class: 'btn btn-xs btn-default', method: :delete, data: { confirm: '¿Estás seguro de eliminar este proyecto?' }
   .col-md-2

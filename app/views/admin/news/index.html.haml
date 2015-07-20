@@ -1,11 +1,11 @@
 .container-fluid.admin-news
   .col-md-2
   .col-md-8
-    .col-md-12.header
+    .row.header
       %h2.pull-left Noticias
       = link_to 'CREAR NOTICIA', new_admin_news_path, class: 'btn btn-xs btn-default pull-right'
     - @news.each do |news|
-      .col-md-12
+      .row
         %hr
         %h6
           = format_time(news.created_at)

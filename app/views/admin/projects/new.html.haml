@@ -1,26 +1,5 @@
 .container-fluid.admin-projects
   .col-md-2
   .col-md-8
-    %h2 Crear Proyecto
-    %hr
-    = form_for @project, url: admin_projects_path do |f|
-      .form-group
-        = f.label 'Nombre'
-        = f.text_field :name, class: 'form-control'
-      .form-group
-        = f.label 'Descripción (500 Caracteres Máximo)'
-        = f.text_area :description, class: 'form-control'
-      .form-group
-        = f.label 'Dirección'
-        = f.text_field :address, class: 'form-control'
-      .form-group
-        = f.label 'Número de Beneficiarios'
-        = f.number_field :beneficiaries, class: 'form-control'
-      .form-group
-        = f.label :home do
-          %p
-            = f.check_box :home
-            Mostrar en Página de Inicio (3 Proyectos Máximo)
-      .form-group
-      = f.submit 'CREAR PROYECTO', class: 'btn btn-default'
+    = render partial: 'form', locals: { project: @project, url: admin_projects_path(@project), form_text: 'Crear Proyecto' }
   .col-md-8

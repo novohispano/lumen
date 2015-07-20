@@ -10,6 +10,8 @@ class Project < ActiveRecord::Base
 
   before_validation :get_coordinates
 
+  default_scope { order(name: :asc) }
+
   scope :home, -> { where(home: true) }
 
   private

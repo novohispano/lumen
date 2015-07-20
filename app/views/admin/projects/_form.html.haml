@@ -1,0 +1,26 @@
+.col-md-12.header
+  %h2
+    = form_text.titleize
+    = link_to 'CANCELAR', admin_projects_path, class: 'btn btn-xs btn-default pull-right'
+.col-md-12.form
+  %hr
+  = form_for project, url: url do |f|
+    .form-group
+      = f.label 'Nombre'
+      = f.text_field :name, class: 'form-control'
+    .form-group
+      = f.label 'Descripción (500 Caracteres Máximo)'
+      = f.text_area :description, class: 'form-control description'
+    .form-group
+      = f.label 'Dirección'
+      = f.text_field :address, class: 'form-control'
+    .form-group
+      = f.label 'Número de Beneficiarios'
+      = f.number_field :beneficiaries, class: 'form-control'
+    .form-group
+      = f.label :home do
+        %p
+          = f.check_box :home
+          Mostrar en Página de Inicio (3 Proyectos Máximo)
+    .form-group
+    = f.submit form_text.upcase, class: 'btn btn-default pull-right'
