@@ -12,5 +12,7 @@ class Photo < ActiveRecord::Base
             presence: true,
             length: { maximum: 200 }
 
+  default_scope { order(created_at: :desc) }
+
   scope :slider, -> { where(slider: true) }
 end

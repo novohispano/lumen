@@ -3,6 +3,8 @@ class News < ActiveRecord::Base
   validates :body,   presence: true
   validates :author, presence: true
 
+  default_scope { order(created_at: :desc) }
+
   scope :recent, -> { last(10) }
 
   def intro

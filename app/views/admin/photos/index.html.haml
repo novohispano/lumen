@@ -1,15 +1,22 @@
 .container-fluid.admin-photos
   .col-md-2
   .col-md-8
-    %h2 Fotos
-    = link_to 'SUBIR FOTO', new_admin_photo_path, class: 'btn btn-sm btn-default'
-    %hr
+    .row.header
+      %h2.pull-left Fotos
+      = link_to 'SUBIR FOTO', new_admin_photo_path, class: 'btn btn-xs btn-default pull-right'
     - @photos.each do |photo|
-      .col-md-4
-        = image_tag(photo.file.url(:medium))
-        %p
-          = photo.description
-        %p
-          = link_to 'EDITAR', edit_admin_photo_path(photo), class: 'btn btn-xs btn-default'
-          = link_to 'ELIMINAR', admin_photo_path(photo), method: :delete, class: 'btn btn-xs btn-default'
+      .row
+        %hr
+        .col-md-3
+          = image_tag(photo.file.url(:medium))
+        .col-md-9
+          - if photo.slider
+            %span.tag PÁGINA DE INICIO
+          %h6
+            = format_time(photo.created_at)
+          %p
+            = photo.description
+          %p
+            = link_to 'EDITAR', edit_admin_photo_path(photo), class: 'btn btn-xs btn-default'
+            = link_to 'ELIMINAR', admin_photo_path(photo),    class: 'btn btn-xs btn-default', method: :delete, data: { confirm: '¿Estás segurdo de elminar esta foto?'}
   .col-md-2
