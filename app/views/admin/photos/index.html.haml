@@ -16,6 +16,11 @@
             = format_time(photo.created_at)
           %p
             = photo.description
+          %h5
+            - if photo.project
+              = photo.project.name
+            - else
+              Proyecto Pendiente
           %p
             = link_to 'EDITAR', edit_admin_photo_path(photo), class: 'btn btn-xs btn-default'
             = link_to 'ELIMINAR', admin_photo_path(photo),    class: 'btn btn-xs btn-default', method: :delete, data: { confirm: '¿Estás segurdo de elminar esta foto?'}

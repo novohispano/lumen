@@ -1,0 +1,24 @@
+.col-md-12.header
+  %h2
+    = form_text.titleize
+    = link_to 'CANCELAR', admin_photos_path, class: 'btn btn-xs btn-default pull-right'
+.col-md-12.form
+  %hr
+  = form_for photo, url: url, html: { multipart: true } do |f|
+    .form-group
+      = f.label 'Descripción (200 Caracteres Máximo)'
+      = f.text_area :description, class: 'form-control'
+    .form-group
+      = f.label 'Archivo'
+      = f.file_field :file
+      %p.help-block Selecciona una foto en formato PNG, JPG o GIF.
+    .form-group
+      = f.label 'Proyecto'
+      = f.collection_select :project_id, Project.all, :id, :name, {}, class: 'form-control'
+    .form-group
+      = f.label :slider do
+        %p
+          = f.check_box :slider
+          Mostrar en Página de Inicio
+    .form-group
+    = f.submit form_text.upcase, class: 'btn btn-default pull-right'
