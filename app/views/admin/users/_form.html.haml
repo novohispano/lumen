@@ -1,0 +1,18 @@
+.col-md-12.header
+  %h2
+    = form_text.titleize
+    = link_to 'CANCELAR', admin_users_path, class: 'btn btn-xs btn-default pull-right'
+.col-md-12.form
+  %hr
+  = form_for user, url: url, html: { multipart: true } do |f|
+    .form-group
+      = f.label 'Email'
+      = f.text_field :email, class: 'form-control'
+    .form-group
+      = f.label 'Contraseña'
+      = f.password_field :password, class: 'form-control'
+    .form-group
+      = f.label 'Confirmar Contraseña'
+      = f.password_field :password_confirmation, class: 'form-control'
+    .form-group
+    = f.submit form_text.upcase, class: 'btn btn-default pull-right'

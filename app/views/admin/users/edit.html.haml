@@ -1,18 +1,5 @@
-.container-fluid
+.container-fluid.admin-users
   .col-md-2
   .col-md-8
-    %h2 Editar Usuario
-    %hr
-    = form_for @user, url: admin_user_path(@user) do |f|
-      .form-group
-        = f.label 'Email'
-        = f.text_field :email, class: 'form-control'
-      .form-group
-        = f.label 'Contraseña'
-        = f.password_field :password, class: 'form-control'
-      .form-group
-        = f.label 'Confirmar Contraseña'
-        = f.password_field :password_confirmation, class: 'form-control'
-      .form-group
-      = f.submit 'GUARDAR USUARIO', class: 'btn btn-default'
+    = render partial: 'form', locals: { user: @user, url: admin_users_path(@user), form_text: 'Editar Usuario' }
   .col-md-8
