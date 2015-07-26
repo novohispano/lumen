@@ -14,10 +14,10 @@
       #bs-example-navbar-collapse-1.collapse.navbar-collapse
         %ul.nav.navbar-nav.navbar-right
           %li
-            = link_to 'INICIO', root_path
+            = highlight_navbar_link('INICIO', root_path, request.path)
           %li
-            = link_to 'PROYECTOS', projects_path
+            = highlight_navbar_link('PROYECTOS', projects_path, request.path)
           %li
-            = link_to 'NOTICIAS', news_index_path
+            = highlight_navbar_link('NOTICIAS', news_index_path, request.path)
           %li
             %a{href: '#'} CONTACTO

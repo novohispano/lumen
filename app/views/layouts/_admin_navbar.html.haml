@@ -13,14 +13,14 @@
       #bs-example-navbar-collapse-1.collapse.navbar-collapse
         %ul.nav.navbar-nav.navbar-right
           %li
-            = link_to 'DASHBOARD', admin_path
+            = highlight_navbar_link('DASHBOARD', admin_path, request.path)
           %li
-            = link_to 'PROYECTOS', admin_projects_path
+            = highlight_navbar_link('PROYECTOS', admin_projects_path, request.path)
           %li
-            = link_to 'NOTICIAS', admin_news_index_path
+            = highlight_navbar_link('NOTICIAS', admin_news_index_path, request.path)
           %li
-            = link_to 'FOTOS', admin_photos_path
+            = highlight_navbar_link('FOTOS', admin_photos_path, request.path)
           %li
-            = link_to 'USUARIOS', admin_users_path
+            = highlight_navbar_link('USUARIOS', admin_users_path, request.path)
           %li
             = link_to 'SALIR', admin_logout_path, method: :delete

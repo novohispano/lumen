@@ -6,4 +6,12 @@ module ApplicationHelper
   def format_time(time)
     l(time.localtime)
   end
+
+  def highlight_navbar_link(text, url, current_page)
+    if url == current_page
+      link_to text, url, class: 'highlight'
+    else
+      link_to text, url
+    end
+  end
 end
