@@ -1,6 +1,6 @@
 class Admin::NewsController < Admin::AdminController
   def index
-    @news = News.recent
+    @news = News.all
   end
 
   def show

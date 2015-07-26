@@ -19,6 +19,7 @@ Rails.application.routes.draw do
   end
 
   resources :projects, only: [:index]
+  resources :news,     only: [:index, :show]
 
   root 'site#show'
 end

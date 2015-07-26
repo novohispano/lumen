@@ -1,0 +1,27 @@
+.container-fluid.news
+  %h2.title Noticias
+  %hr
+  .col-md-8
+    - @news.each do |news|
+      .row
+        %h6
+          = format_time(news.created_at)
+        %h3.title
+          = link_to news.title, news_path(news)
+        %h4.title
+          = news.author
+        %p
+          = simple_format(news.intro)
+        %hr
+        %p
+          = link_to 'LEER MÁS', news_path(news), class: 'btn btn-xs btn-default pull-right'
+  .col-md-1
+  .col-md-3.news-list
+    - @news.each do |news|
+      .row
+        %h6
+          = format_time(news.created_at)
+        %h3.title
+          = link_to news.title, news_path(news)
+        %h4.title
+          = news.author
