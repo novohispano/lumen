@@ -17,7 +17,7 @@
   .col-md-1
   .col-md-3.news-list
     - @news_list.each do |news|
-      .row
+      .row.news-item
         %h6
           = format_time(news.created_at)
         %h3.title

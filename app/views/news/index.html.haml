@@ -1,5 +1,5 @@
 .container-fluid.news
-  %h2.title Noticias
+  %h2 Noticias
   %hr
   .col-md-8
     - @news.each do |news|
@@ -18,7 +18,7 @@
   .col-md-1
   .col-md-3.news-list
     - @news.each do |news|
-      .row
+      .row.news-item
         %h6
           = format_time(news.created_at)
         %h3.title
