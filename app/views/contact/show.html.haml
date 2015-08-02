@@ -15,16 +15,16 @@
     = form_tag(url: contact_path, method: :post) do
       .form-group
         = label_tag 'Nombre*'
-        = text_field_tag :name, '', class: 'form-control'
+        = text_field_tag 'contact[name]', '', class: 'form-control'
       .form-group
         = label_tag 'Email*'
-        = text_field_tag :email, '', class: 'form-control'
+        = text_field_tag 'contact[email]', '', class: 'form-control'
       .form-group
         = label_tag 'Asunto*'
-        = select_tag :subject, options_for_select(%w(Trabajo Pasantía Voluntariado Alianza Comunidad Donación).sort.push('Otro')), class: 'form-control'
+        = select_tag 'contact[subject]', options_for_select(%w(Trabajo Pasantía Voluntariado Alianza Comunidad Donación).sort.push('Otro')), class: 'form-control'
       .form-group
         = label_tag 'Mensaje*'
-        = text_area_tag :body, '', class: 'form-control message'
+        = text_area_tag 'contact[message]', '', class: 'form-control message'
       .form-group
       .btn-contact= submit_tag 'ENVIAR EMAIL', class: 'btn btn-default btn-lg'
   .col-sm-2
