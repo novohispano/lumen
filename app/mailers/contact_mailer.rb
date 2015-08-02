@@ -3,8 +3,8 @@ class ContactMailer < ApplicationMailer
     @data = OpenStruct.new(data)
 
     mail(
-      from:    format_sender(@data),
-      subject: @data.subject,
+      from:          format_sender(@data),
+      subject:       @data.subject,
       )
   end
 
