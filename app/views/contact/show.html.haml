@@ -1,0 +1,30 @@
+.container-fluid.contact
+  .col-sm-2
+  .col-sm-8
+    %h2 CONTACTO
+    %hr.header
+    %p El Proyecto Lumen no sería posible sin el apoyo de decenas de voluntarios y donantes. Si quieres trabajar con nosotros, formar un alianza, realizar tu pasantía, o proponer a tu comunidad, mándanos un email utilizando la forma de abajo.
+    %p Si deseas realizar una donación, da click en el botón de Paypal.
+    %form{action: 'https://www.paypal.com/cgi-bin/webscr', method: 'post', target: '_top'}
+      .btn-contact
+        %input{name: 'cmd', type: 'hidden', value: '_s-xclick'}
+          %input{name: 'hosted_button_id', type: 'hidden', value: 'DNFRJGD9R2QKS'}
+            %input{alt: 'PayPal - The safer, easier way to pay online!', border: '0', name: 'submit', src: "#{image_path('donate_button.png')}", type: 'image'}
+              %img{alt: '', border: '0', height: '1', src: 'https://www.paypalobjects.com/en_US/i/scr/pixel.gif', width: '1'}
+    %hr
+    = form_tag(url: contact_path, method: :post) do
+      .form-group
+        = label_tag 'Nombre*'
+        = text_field_tag :name, '', class: 'form-control'
+      .form-group
+        = label_tag 'Email*'
+        = text_field_tag :email, '', class: 'form-control'
+      .form-group
+        = label_tag 'Asunto*'
+        = select_tag :subject, options_for_select(%w(Trabajo Pasantía Voluntariado Alianza Comunidad Donación).sort.push('Otro')), class: 'form-control'
+      .form-group
+        = label_tag 'Mensaje*'
+        = text_area_tag :body, '', class: 'form-control message'
+      .form-group
+      .btn-contact= submit_tag 'ENVIAR EMAIL', class: 'btn btn-default btn-lg'
+  .col-sm-2

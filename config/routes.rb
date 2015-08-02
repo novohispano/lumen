@@ -21,5 +21,8 @@ Rails.application.routes.draw do
   resources :projects, only: [:index]
   resources :news,     only: [:index, :show]
 
+  get '/contact',  to: 'contact#show'
+  post '/contact', to: 'contact#create'
+
   root 'site#show'
 end
