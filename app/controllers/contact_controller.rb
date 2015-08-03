@@ -4,9 +4,9 @@ class ContactController < ApplicationController
 
   def create
     if MailerService.new(ContactMailer, :contact_email, contact_params).deliver
-      redirect_to root_path, success: 'Tu correo fue enviado exitosamente.'
+      redirect_to root_path, success: 'Tu mensaje fue enviado exitosamente.'
     else
-      flash.now[:danger] = 'Tu correo no pudo ser enviado en este momento. Por favor, intenta más tarde.'
+      flash.now[:danger] = 'Tu mensaje no pudo ser enviado en este momento. Por favor, intenta más tarde.'
       render :show
     end
   end
