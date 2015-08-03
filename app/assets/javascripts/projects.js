@@ -1,11 +1,11 @@
-$(document).ready(renderMap)
-$(document).on('page:load', renderMap)
+$(document).ready(renderMap);
+$(document).on('page:load', renderMap);
 
 function renderMap() {
   var mapOptions = {
     center: { lat: 6.75, lng: -66.58973},
     zoom: 6,
-    scrollwheel: false
+    scrollwheel: false,
   };
 
   var map = new google.maps.Map(document.getElementById('map-canvas'),
@@ -22,21 +22,21 @@ function fetchProjects(map) {
         var latLng = new google.maps.LatLng(project.latitude, project.longitude);
         var marker = new google.maps.Marker({
           position: latLng,
-          title:    project.name
+          title:    project.name,
         });
 
         renderMarker(marker, map);
 
         var infowindow = new google.maps.InfoWindow({
-          content: renderInfoWindowText(project)
+          content: renderInfoWindowText(project),
         });
 
         google.maps.event.addListener(marker, 'click', function() {
           infowindow.open(map, marker);
         });
-      })
-    }
-  })
+      });
+    },
+  });
 }
 
 function renderMarker(marker, map) {
@@ -48,5 +48,5 @@ function renderInfoWindowText(project) {
          + '<h3>' + project.name          + '</h3>'
          + '<hr>'
          + '<p>'  + project.description   + '</p>'
-         + '</div>'
+         + '</div>';
 }
