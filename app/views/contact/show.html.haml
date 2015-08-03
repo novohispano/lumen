@@ -21,7 +21,7 @@
         = text_field_tag 'contact[email]', '', class: 'form-control'
       .form-group
         = label_tag 'Asunto*'
-        = select_tag 'contact[subject]', options_for_select(%w(Trabajo Pasantía Voluntariado Alianza Comunidad Donación).sort.push('Otro')), class: 'form-control'
+        = select_tag 'contact[subject]', options_for_select(contact_form_options), class: 'form-control'
       .form-group
         = label_tag 'Mensaje*'
         = text_area_tag 'contact[message]', '', class: 'form-control message'
