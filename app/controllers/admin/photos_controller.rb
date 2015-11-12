@@ -44,11 +44,6 @@ class Admin::PhotosController < Admin::AdminController
   private
 
   def photo_params
-    params.require(:photo).permit(
-      :description,
-      :file,
-      :project_id,
-      :slider
-      ).merge(id: Photo.count + 1)
+    params.require(:photo).permit(:description, :file, :project_id, :slider)
   end
 end
