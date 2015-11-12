@@ -22,4 +22,8 @@
           %li
             = highlight_navbar_link('CONTACTO', contact_path, request.path)
           %li
-            = link_to 'DONAR', 'https://www.paypal.com/ve/cgi-bin/webscr?cmd=_flow&SESSION=tp15Y5ZgaBgwIfhg1mloabvwzSPbIVelovPzUwUibhlzhs8TjGj7-5W2-QS&dispatch=5885d80a13c0db1f8e263663d3faee8d64ad11bbf4d2a5a1a0d303a50933f9b2', class: 'btn btn-xs btn-default donation'
+            %form{action: 'https://www.paypal.com/cgi-bin/webscr', method: 'post', target: '_top'}
+              %input{name: 'cmd', type: 'hidden', value: '_s-xclick'}
+                %input{name: 'hosted_button_id', type: 'hidden', value: 'DNFRJGD9R2QKS'}
+                  %input{alt: 'Dona al Proyecto Lumen por medio de PayPal', name: 'submit', class: 'btn btn-xs btn-default donation', type: 'submit', value: 'DONAR'}
+                    %img{alt: '', border: '0', height: '1', src: 'https://www.paypalobjects.com/en_US/i/scr/pixel.gif', width: '1'}
