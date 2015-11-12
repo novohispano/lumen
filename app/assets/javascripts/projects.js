@@ -1,5 +1,4 @@
-$(document).ready(renderMap);
-$(document).on('page:load', renderMap);
+$(document).on('ready page:load', renderMap);
 
 function renderMap() {
   var mapOptions = {
