@@ -33,7 +33,7 @@
   - @metrics.each do |metric|
     .col-sm-4
       %h3
-        = metric.try(:title).to_s.capitalize
+        = metric.try(:title).to_s.upcase
       %p
         = metric.try(:description)
 
@@ -41,7 +41,7 @@
   .col-sm-2
   .col-sm-8
     %h2
-      = @history.try(:title).to_s.capitalize
+      = @history.try(:title).to_s.upcase
     %hr
     %p
       = @history.try(:description)
