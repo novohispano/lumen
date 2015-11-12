@@ -8,8 +8,10 @@ Bundler.require(*Rails.groups)
 
 module Lumen
   class Application < Rails::Application
+    # SASS Syntax
     config.sass.preferred_syntax = :sass
 
+    # Paperclip Configuration
     config.paperclip_defaults = {
       storage: :s3,
       s3_credentials: {
@@ -19,8 +21,13 @@ module Lumen
         }
       }
 
+    # Localization to Mexican Spanish
     config.i18n.available_locales = 'es-MX'
     config.i18n.default_locale    = 'es-MX'
+
+    # Background Jobs
+    config.active_job.queue_adapter = :sidekiq
+
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
