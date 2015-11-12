@@ -3,7 +3,7 @@
     .container-fluid
       / Brand and toggle get grouped for better mobile display
       .navbar-header
-        %button.navbar-toggle.collapsed{'data-target' => '#bs-example-navbar-collapse-1', 'data-toggle' => 'collapse', type:  'button'}
+        %button.navbar-toggle.collapsed{'datatarget': '#bs-example-navbar-collapse-1', 'datatoggle': 'collapse', type:  'button'}
           %span.sr-only Toggle navigation
           %span.icon-bar
           %span.icon-bar
@@ -21,3 +21,5 @@
             = highlight_navbar_link('NOTICIAS', news_index_path, request.path)
           %li
             = highlight_navbar_link('CONTACTO', contact_path, request.path)
+          %li
+            = link_to 'DONAR', 'https://www.paypal.com/ve/cgi-bin/webscr?cmd=_flow&SESSION=tp15Y5ZgaBgwIfhg1mloabvwzSPbIVelovPzUwUibhlzhs8TjGj7-5W2-QS&dispatch=5885d80a13c0db1f8e263663d3faee8d64ad11bbf4d2a5a1a0d303a50933f9b2', class: 'btn btn-xs btn-default donation'
