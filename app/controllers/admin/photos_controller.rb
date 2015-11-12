@@ -15,7 +15,7 @@ class Admin::PhotosController < Admin::AdminController
     @photo = Photo.new(photo_params)
 
     if @photo.save
-      redirect_to admin_photos_path, success: 'La foto se ha guardado exitosamente.'
+      redirect_to admin_photos_path, success: 'La foto se está procesando y estará lista en unos momentos.'
     else
       flash.now[:danger] = 'La foto no pudo ser guardada. Por favor, intenta de nuevo.'
       render :new
@@ -26,7 +26,7 @@ class Admin::PhotosController < Admin::AdminController
     @photo = Photo.find_by(id: params[:id])
 
     if @photo.update_attributes(photo_params)
-      redirect_to admin_photos_path, success: 'La foto se ha actualizado exitosamente.'
+      redirect_to admin_photos_path, success: 'La foto se está procesando y estará lista en unos momentos.'
     else
       flash.now[:danger] = 'La foto no pudo ser actualizada. Por favor, intenta de nuevo.'
       render :edit
