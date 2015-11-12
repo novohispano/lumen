@@ -11,9 +11,9 @@ class Admin::ProjectsController < Admin::AdminController
     @project = Project.new(project_params)
 
     if @project.save
-      redirect_to admin_projects_path, success: 'El projecto se ha guardado exitosamente.'
+      redirect_to admin_projects_path, success: 'El proyecto se ha guardado exitosamente.'
     else
-      flash.now[:danger] = 'El projecto no pudo ser guardado. Por favor, intenta de nuevo.'
+      flash.now[:danger] = 'El proyecto no pudo ser guardado. Por favor, intenta de nuevo.'
       render :new
     end
   end
@@ -37,7 +37,7 @@ class Admin::ProjectsController < Admin::AdminController
     project = Project.find(params[:id])
     project.destroy
 
-    redirect_to admin_projects_path, success: "El proyecto #{project.email} se eliminó del sistema."
+    redirect_to admin_projects_path, success: "El proyecto #{project.name} se eliminó del sistema."
   end
 
   private

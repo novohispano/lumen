@@ -1,0 +1,21 @@
+.col-md-12.header
+  %h2
+    = form_text.titleize
+    = link_to 'CANCELAR', admin_highlights_path, class: 'btn btn-xs btn-default pull-right'
+.col-md-12.form
+  %hr
+  = form_for highlight, url: url do |f|
+    .form-group
+      = f.label 'Título'
+      = f.text_field :title, class: 'form-control'
+    .form-group
+      = f.label 'Descripción (500 Caracteres Máximo)'
+      = f.text_area :description, class: 'form-control description'
+    .form-group
+      = f.label :content_type do
+        %p
+          = f.select :content_type, [['Métrica', :metric], ['Historia', :history]], class: 'form-control content_type'
+        %p
+          Selecciona el tipo de contenido destacado. Este tipo puede ser 'métrica' o 'historia'. Sólo es posible tener tres métricas, y una historia.
+    .form-group
+    = f.submit form_text.upcase, class: 'btn btn-default pull-right'

@@ -1,0 +1,5 @@
+.container-fluid.admin-highlights
+  .col-md-2
+  .col-md-8
+    = render partial: 'form', locals: { highlight: @highlight, url: admin_highlights_path(@highlight), form_text: 'Crear Contenido Destacado' }
+  .col-md-8

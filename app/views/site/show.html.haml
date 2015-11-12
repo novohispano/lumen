@@ -30,25 +30,21 @@
     %span.sr-only Next
 
 .container-fluid.metrics
-  .col-sm-4
-    %span.glyphicon.glyphicon-heart{"aria-hidden" => "true"}
-    %h3 Impacto
-    %p Proyecto Lumen ha ayudado a detectar problemas de salud visual en 1 millón de niños en Venezuela.
-  .col-sm-4
-    %span.glyphicon.glyphicon-circle-arrow-up{"aria-hidden" => "true"}
-    %h3 Escalabilidad
-    %p El modelo de Proyecto Lumen permite entrenar a cientos de maestros de escuela en la detección de problemas de salud visual.
-  .col-sm-4
-    %span.glyphicon.glyphicon-globe{"aria-hidden" => "true"}
-    %h3 Sustentabilidad
-    %p La implementación del Proyecto Lumen corre a cargo de las comunidades, por lo que son ellas las que lo mantienen en el mediano plazo.
+  - @metrics.each do |metric|
+    .col-sm-4
+      %h3
+        = metric.title
+      %p
+        = metric.description
 
 .container-fluid.historia
   .col-sm-2
   .col-sm-8
-    %h2 HISTORIA
+    %h2
+      = @history.title
     %hr
-    %p El Proyecto Lumen fue fundado por el optómetra Martín Guzman en el 2008. Martín, quien daba clases en la Escuela de Optómetras de Venezuela, reclutó a un grupo de estudiantes para investigar los problemas de salud visual en zonas de difícil acceso.
+    %p
+      = @history.description
   .col-sm-2
 
 .container-fluid.proyectos

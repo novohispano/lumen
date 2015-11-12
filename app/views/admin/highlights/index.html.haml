@@ -1,0 +1,19 @@
+.container-fluid.admin-highlights
+  .col-md-2
+  .col-md-8
+    .row.header
+      %h2.pull-left Contenido Destacado
+      = link_to 'CREAR CONTENIDO DESTACADO', new_admin_highlight_path, class: 'btn btn-xs btn-default pull-right'
+    - @highlights.each do |highlight|
+      .row
+        %hr
+        - if highlight.content_type
+          %span.tag= translate_highlight(highlight.content_type)
+        %h3
+          = highlight.title
+        %p
+          = highlight.description
+        %p
+          = link_to 'EDITAR',   edit_admin_highlight_path(highlight), class: 'btn btn-xs btn-default'
+          = link_to 'ELIMINAR', admin_highlight_path(highlight),      class: 'btn btn-xs btn-default', method: :delete, data: { confirm: '¿Estás seguro de eliminar este contenido destacado?' }
+  .col-md-2

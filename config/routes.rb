@@ -1,10 +1,11 @@
 Rails.application.routes.draw do
   namespace :admin do
-    resources :users
+    resources :highlights
+    resources :news
     resources :photos
     resources :projects
-    resources :news
     resources :sessions, only: [:create, :destroy]
+    resources :users
 
     get    '/login',  to: 'sessions#new'
     delete '/logout', to: 'sessions#destroy'
@@ -18,10 +19,10 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :projects, only: [:index]
   resources :news,     only: [:index, :show]
+  resources :projects, only: [:index]
 
-  get '/contact',  to: 'contact#show'
+  get  '/contact', to: 'contact#show'
   post '/contact', to: 'contact#create'
 
   root 'site#show'

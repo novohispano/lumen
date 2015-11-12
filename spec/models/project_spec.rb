@@ -20,8 +20,8 @@ RSpec.describe Project, type: :model do
       expect(result.description).to   eq('Descripción del proyecto')
       expect(result.beneficiaries).to eq(10)
       expect(result.address).to       eq('Caracas, Venezuela')
-      expect(result.longitude).to     eq(-66.8037185)
-      expect(result.latitude).to      eq(10.4696404)
+      expect(result.longitude).to     eq(-66.90360629999999)
+      expect(result.latitude).to      eq(10.4805937)
     end
   end
 
