@@ -13,7 +13,7 @@ class Admin::HighlightsController < ApplicationController
     if @highlight.save
       redirect_to admin_highlights_path, success: 'El contenido se ha guardado exitosamente.'
     else
-      flash.now[:danger] = 'El contenido no pudo ser guardado. Por favor, intenta de nuevo.'
+      flash.now[:danger] = "El contenido no pudo ser guardado. #{format_errors(@highlight)} Por favor, intenta de nuevo."
       render :new
     end
   end
@@ -28,7 +28,7 @@ class Admin::HighlightsController < ApplicationController
     if @highlight.update_attributes(highlight_params)
       redirect_to admin_highlights_path, success: "El contenido #{@highlight.title} se actualizó exitosamente."
     else
-      flash.now[:warning] = "El contenido #{@highlight.title} no pudo actualizarse. Por favor, intenta de nuevo."
+      flash.now[:warning] = "El contenido #{@highlight.title} no pudo actualizarse. #{format_errors(@highlight)} Por favor, intenta de nuevo."
       render :edit
     end
   end

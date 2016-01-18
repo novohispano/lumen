@@ -38,7 +38,7 @@ RSpec.describe Highlight, type: :model do
 
   it 'doesn\'t allow more than one history in home' do
     result = nil
-    
+
     %w(Hightlight1 Hightlight2).each do |title|
       hightlight_data                = data.dup
       hightlight_data[:content_type] = 'history'
@@ -49,6 +49,31 @@ RSpec.describe Highlight, type: :model do
 
     expect(result).not_to                            be_valid
     expect(result.errors.messages[:content_type]).to include('no se puede mostrar más de una historia en la página de inicio')
+  end
+
+  it 'allows to update a metric when there are three metrics' do
+    %w(Hightlight1 Hightlight2 Hightlight3).each do |title|
+      hightlight_data         = data.dup
+      hightlight_data[:title] = title
+
+      Highlight.create(hightlight_data)
+    end
+
+    result = Highlight.first
+    result.update_attributes(title: 'Updated Highlight')
+
+    expect(result).to       be_valid
+    expect(result.title).to eq 'Updated Highlight'
+  end
+
+  it 'allows to update a metric when there are three metrics' do
+    Highlight.create(title: 'History Highlight', description: 'Hightlight description', content_type: 'history')
+
+    result = Highlight.first
+    result.update_attributes(title: 'Updated Highlight')
+
+    expect(result).to       be_valid
+    expect(result.title).to eq 'Updated Highlight'
   end
 
   it 'doesn\'t allow content_type different from "metric" or "history"' do

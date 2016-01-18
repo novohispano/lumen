@@ -8,7 +8,7 @@
       .row
         %hr
         - if highlight.content_type
-          %span.tag= translate_highlight(highlight.content_type)
+          %span.tag{id: highlight.content_type}= translate_highlight(highlight.content_type)
         %h3
           = highlight.title
         %p
