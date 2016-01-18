@@ -3,7 +3,7 @@ class SiteController < ApplicationController
 
   def show
     @photos     = Photo.slider
-    @metrics    = Highlight.metrics
+    @metrics    = Highlight.metrics.first(3)
     @history    = Highlight.history.first
     @projects   = Project.home
   end
