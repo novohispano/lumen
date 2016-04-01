@@ -14,8 +14,8 @@
     .form-group
       = f.label :content_type do
         %p
-          = f.select :content_type, [['Métrica', :metric], ['Historia', :history]], class: 'form-control content_type'
+          = f.select :content_type, [['Métrica', :metric], ['Historia', :history]], {}, class: 'form-control content_type'
         %p
-          Selecciona el tipo de contenido destacado. Este tipo puede ser 'métrica' o 'historia'. Sólo es posible tener tres métricas, y una historia.
+          Selecciona el tipo de contenido destacado que aparecerá en la <b>página de inicio</b>. Este tipo puede ser 'métrica' o 'historia'. Sólo es posible tener tres métricas, y una historia.
     .form-group
     = f.submit form_text.upcase, class: 'btn btn-default pull-right'
