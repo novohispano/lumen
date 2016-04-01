@@ -1,2 +1,2 @@
 web: bundle exec puma -C config/puma.rb
-workers: bundle exec sidekiq -q paperclip
+workers: bundle exec sidekiq -c 5 -q paperclip
